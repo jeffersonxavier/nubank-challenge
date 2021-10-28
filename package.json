@@ -1,0 +1,17 @@
+{
+  "name": "nubank-challenge",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "Jefferson Xavier <jeffersonx.xavier@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "ts-node": "^10.4.0"
+  }
+}
