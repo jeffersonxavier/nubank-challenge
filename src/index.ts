@@ -1,19 +1,19 @@
-import fs from 'fs';
 import { AuthorizerService } from './services/AuthorizerService';
 
-const processFile = () => {
+const processFile = async () => {
   const args = process.argv.slice(2);
   if (!args || !args.length) {
     throw new Error('Invalid Input File!');
   }
 
-  const file = args[0];
-  if (!fs.existsSync(file)) {
-    throw new Error('File Not Found!');
-  }
+  const [file] = args;
 
   const authorizerService = new AuthorizerService();
-  authorizerService.startProcess(file);
+  const result = await authorizerService.startProcess(file);
+
+  for (const line of result) {
+    console.log(JSON.stringify(line));
+  }
 };
 
 try {

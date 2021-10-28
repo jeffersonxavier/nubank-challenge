@@ -7,7 +7,7 @@ describe('Process Transactions Unit Tests', () => {
 
   beforeEach(() => {
     transactionService = new TransactionService();
-  })
+  });
 
   it('should be return a transaction validated', () => {
     let account: Account = { 'active-card': true, 'available-limit': 100 };
