@@ -1,5 +1,5 @@
 import fs from 'fs';
-import readline from 'readline';
+import { AuthorizerService } from './services/AuthorizerService';
 
 const processFile = () => {
   const args = process.argv.slice(2);
@@ -12,15 +12,8 @@ const processFile = () => {
     throw new Error('File Not Found!');
   }
 
-  const readInterface = readline.createInterface(fs.createReadStream(file));
-
-  readInterface.on('line', line => {
-    console.log(line);
-  });
-
-  readInterface.on('close', () => {
-    console.log('CLOSE READER...')
-  });
+  const authorizerService = new AuthorizerService();
+  authorizerService.startProcess(file);
 };
 
 try {
